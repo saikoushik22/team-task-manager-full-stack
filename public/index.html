@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team Task Manager</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <section class="auth" id="authView">
+        <div>
+          <p class="eyebrow">Full-stack assignment</p>
+          <h1>Team Task Manager</h1>
+          <p class="lead">Create projects, invite teammates, assign work, and track delivery with Admin and Member access.</p>
+        </div>
+        <form id="authForm" class="panel">
+          <div class="tabs">
+            <button type="button" class="active" data-mode="login">Login</button>
+            <button type="button" data-mode="signup">Signup</button>
+          </div>
+          <label class="signup-only">Name <input name="name" placeholder="Aarav Sharma" /></label>
+          <label>Email <input name="email" type="email" placeholder="you@example.com" required /></label>
+          <label>Password <input name="password" type="password" placeholder="Min 6 characters" required /></label>
+          <label class="signup-only">Role
+            <select name="role">
+              <option>Admin</option>
+              <option>Member</option>
+            </select>
+          </label>
+          <button class="primary" type="submit">Continue</button>
+          <p class="message" id="authMessage"></p>
+        </form>
+      </section>
+
+      <section class="app hidden" id="appView">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Workspace</p>
+            <h2 id="welcome">Dashboard</h2>
+          </div>
+          <button id="logoutBtn" class="ghost">Logout</button>
+        </header>
+
+        <section class="stats" id="stats"></section>
+
+        <section class="grid">
+          <form class="panel admin-only" id="projectForm">
+            <h3>New Project</h3>
+            <label>Project name <input name="name" required minlength="3" placeholder="Website Launch" /></label>
+            <label>Description <textarea name="description" placeholder="Goals, scope, or client notes"></textarea></label>
+            <button class="primary">Create Project</button>
+          </form>
+
+          <form class="panel admin-only" id="memberForm">
+            <h3>Add Team Member</h3>
+            <label>Project <select name="projectId" required></select></label>
+            <label>User <select name="userId" required></select></label>
+            <label>Role
+              <select name="role">
+                <option>Member</option>
+                <option>Admin</option>
+              </select>
+            </label>
+            <button class="primary">Save Member</button>
+          </form>
+
+          <form class="panel admin-only" id="taskForm">
+            <h3>New Task</h3>
+            <label>Title <input name="title" required minlength="3" placeholder="Design login screen" /></label>
+            <label>Project <select name="projectId" required></select></label>
+            <label>Assign to <select name="assigneeId" required></select></label>
+            <label>Due date <input name="dueDate" type="date" /></label>
+            <button class="primary">Create Task</button>
+          </form>
+        </section>
+
+        <section class="content">
+          <div>
+            <h3>Projects</h3>
+            <div id="projects" class="list"></div>
+          </div>
+          <div>
+            <h3>Tasks</h3>
+            <div id="tasks" class="list"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
