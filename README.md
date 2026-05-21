@@ -134,9 +134,4 @@ JWT_SECRET=your-long-random-secret
 - `PATCH /api/tasks/:id`
 - `GET /api/dashboard`
 
-## Submission Checklist
 
-- Live URL from Railway
-- GitHub repository URL
-- README
-- 2-5 minute demo video
